@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Information Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      background: #004080;
+      color: white;
+      padding: 20px;
+    }
+
+    header img {
+      
+      max-height: 200px;
+      object-fit: cover;
+      background-size: cover;
+      border-bottom: 4px solid #003060;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #004080;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #004080;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+      transition: background-color 0.3s;
+    }
+
+    .student-image {
+      width: 60px;
+      border-radius: 50%;
+    }
+
+    input[type="text"], input[type="email"], select {
+      padding: 10px;
+      width: 100%;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #004080;
+      outline: none;
+    }
+
+    .form-section {
+      margin-top: 40px;
+    }
+
+    .form-section label {
+      font-weight: bold;
+    }
+
+    .submit-btn {
+      background: #004080;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: #002a5c;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://res.cloudinary.com/dnbapjkoa/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1743697112/Mgm_logo_eoq0wl.jpg" alt="College Image">
+  <h1>Student Information Form</h1>
+</header>
+
+<div class="container">
+
+  <div class="form-section">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter your email">
+
+    <label for="branch">Branch:</label>
+    <select id="branch">
+      <option value="cse">Computer Science</option>
+      <option value="it">Information Technology</option>
+      <option value="mech">Mechanical</option>
+      <option value="entc">Electronics</option>
+    </select>
+
+    <button class="submit-btn">Submit</button>
+  </div>
+
+  <h2>Student List</h2>
+  <table>
+    <thead>
+      <tr>
+        
+        <th>Name</th>
+        <th>Email</th>
+        <th>Branch</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        
+        <td>Amit Sharma</td>
+        <td>amit@example.com</td>
+        <td>CSE</td>
+      </tr>
+      <tr>
+        
+        <td>Sneha Patel</td>
+        <td>sneha@example.com</td>
+        <td>IT</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+</body>
+</html>

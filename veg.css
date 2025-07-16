@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+.navbar{
+    height: 12vh;
+}
+.custom-nav-link {
+    color: black !important;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 18px;
+}
+.Logo {
+    height: 75px;
+    width: 80px;
+    border: 0;
+    border-radius: 5px;
+}
+
+.Banner-section-bg-container {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Only background image movement */
+.Banner-section-bg-container::before {
+    content: "";
+    position: absolute;
+    left: -150px;  /* start from left */
+    height: 100%;
+    width: 100%;
+
+    background-image: 
+        linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),
+        url("/Static/images/home/banner.jpg");
+        
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: left 0.77s ease;
+    z-index: 0;
+}
+
+/* When you want to trigger animation */
+.Banner-section-bg-container.show::before {
+    left: 0;  /* Slide to original position */
+}
+
+/* Ensure text inside doesn't move and stays above */
+.Banner-section-bg-container > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+.banner-heading {
+    color: white;
+    font-family: Roboto;
+    font-size: 45px;
+    font-weight: 600;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.banner-caption {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.banner-button {
+    width: 170px;
+    height: 45px;
+   background-color:#1DC198;
+    border-radius: 8px;
+    margin-right: 10px;
+    border: 0;
+    color:#FFF;
+     transition: all 0.3s ease;
+}
+
+.banner-outline-button {
+    width: 170px;
+    height: 45px;
+    background-color: transparent;
+    border-radius: 8px;
+    margin-right: 10px;
+    color: #1dc198;
+    border: 1px solid #1dc198;
+    font-weight:600;
+      transition: all 0.3s ease;
+}
+.banner-button:hover {
+    background-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+button:hover {
+    background-color: white;
+    color: black;
+    border: none;
+    font-weight: bold;
+}
+.banner-outline-button:hover {
+     background-color: white;
+    color: black;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+button:active {
+     background-color: white;
+    color: black;
+    border: none;
+    font-weight: bold;
+}
+
+.Why-section {
+    background-color: #f9fbfe;
+}
+
+.Why-section-heading {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 28px;
+    color: #183b56;
+}
+
+.Why-section-card {
+    text-align: center;
+    border: 1px solid #e5eaf4;
+    border-radius: 16px;
+    transition: 0.5s ease;
+}
+.Why-section-card:hover{
+    transform: translateY(-8px);
+}
+
+.Why-section-description {
+    font-family: Roboto;
+    font-size: 16px;
+    color: #5a7184;
+}
+
+.Why-section-card-image {
+    height: 90px;
+    width: 87px;
+}
+
+.custom-nav-link:hover {
+    background-color: orange;
+    border-radius: 10px;
+    color: white !important;
+    font-weight: bold;
+}
+
+.custom-nav-link:active {
+    background-color: grey;
+    border-radius: 10px;
+}
+
+.Why-section-card-title {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 22px;
+    color: #323f4b;
+}
+
+.offers {
+    color: #323f4b;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.Explore-menu-section {
+    background-color: white;
+}
+
+.Explore-menu-heading {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 28px;
+    color: #183b56;
+}
+
+.menu-item-image {
+    border-radius: 16px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-card-title {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 24px;
+    color: #3cb371;
+}
+
+.menu-item-link {
+    color: #d0b200;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: transparent;
+    border: 0;
+}
+
+.menu-item-link:hover {
+    border-radius: 5px;
+    background-color: #229aaf;
+    color: white;
+    font-size: 13px;
+    padding: 4px;
+}
+.Class-Svg:hover{
+ color: white!important;
+}
+
+.menu-item-card {
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+    margin: 10% auto 0;
+    /* Top margin 10%, horizontally centered */
+    width: 100%;
+    max-width: 300px;
+}
+
+.menu-item-card:hover {
+    transform: translateY(-5px);
+}
+
+.healthy-food-section {
+    background-color: #f9fbfe;
+}
+
+.healthy-food-section-img {
+    width: 270px;
+    border-radius:10px;
+    transition: transform 0.3s ease;
+}
+.healthy-food-section-img:hover {
+      transform: translateY(-5px);
+}
+
+.healthy-food-section-heading {
+    color: #183b56;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.healthy-food-section-description {
+    color: #5a7184;
+    font-family: "Roboto";
+    font-size: 16px;
+}
+
+.custom-button {
+    color: white;
+    background-image: radial-gradient(#d0b200, #a58d00);
+    width: 130px;
+    height: 45px;
+    border: 0;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.delivery-and-payment-section {
+    background-color: white;
+}
+
+.delivery-and-payment-section-img {
+    width: 270px;
+    transition: transform 0.3s ease;
+}
+.delivery-and-payment-section-img:hover{ 
+      transform: translateY(-5px); 
+}
+
+
+
+.delivery-and-payment-section-heading {
+    color: #183b56;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.delivery-and-payment-section-description {
+    color: #5a7184;
+    font-family: "Roboto";
+    font-size: 16px;
+}
+
+.payment-card-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 28px;
+}
+
+.thanking-customers-section {
+    background-image: radial-gradient(#fff8db, #fae38c);
+}
+
+.thanking-customers-section-heading {
+    color: #183b56;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.thanking-customers-section-description {
+    color: #5a7184;
+    font-family: "Roboto";
+    font-size: 16px;
+}
+
+.thanking-customers-section-img {
+    width: 270px;
+    margin-bottom: 20px;
+}
+
+.thanking-customers-section-modal-title {
+    font-weight: 700;
+    color: #d0b200;
+}
+
+.follow-us-section {
+    background-color: white;
+}
+
+.follow-us-section-heading {
+    text-align: center;
+    color: #183b56;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.follow-us-icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    margin: 15px;
+    padding: 22px 16px 14px 22px;
+    transition: transform 0.3s ease;
+}
+.Twiteer{
+    color:rgb(47, 165, 255);
+}
+.facebook{
+        color: rgb(2, 106, 209);;
+
+}
+.instagram{
+    background: radial-gradient(circle at 30% 107%, 
+    #fdf497 0%, 
+    #fdf497 5%, 
+    #fd5949 45%, 
+    #d6249f 60%, 
+    #285AEB 90%);
+}
+.follow-us-icon-container:hover{
+    transform: translateY(-5px);
+}
+
+.icon {
+    
+    font-size: 40px;
+}
+.follow-us-icon-container.instagram {
+  /* Remove any existing background/color */
+  background: transparent;
+  position: relative;
+}
+
+.follow-us-icon-container.instagram .icon {
+  /* Apply gradient to the icon */
+  background: radial-gradient(
+    circle at 30% 107%, 
+    #fdf497 0%, 
+    #fdf497 5%, 
+    #fd5949 45%, 
+    #d6249f 60%, 
+    #285AEB 90%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer-section {
+    background-color: rgb(123, 25, 3);
+}
+.text-uppercase{
+ color: rgb(216, 152, 4);
+}
+.hite{
+    font-size: 17px;
+    padding-bottom: 5px;
+}
+.footer-section-mail-id {
+    color: #959ead;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.footer-section-address {
+    color: #959ead;
+    font-family: "Roboto";
+    font-size: 14px;
+}
+
+.food-munch-logo {
+    height: 80px;
+    width: 80px;
+
+}
+
+.Dish-Price {
+    color: black;
+    font-weight: 600;
+}
+
+
+/*Veg-Container*/
+.Veg-Container {
+    align-items: center !important;
+}
+
+/* ---------------------- Media Queries ---------------------- */
+
+/* For mobile devices (width < 576px) */
+@media screen and (max-width: 576px) {
+    .banner-heading {
+        font-size: 30px;
+        width: 90%;
+    }
+
+    .banner-caption {
+        font-size: 20px;
+        width: 90%;
+    }
+}
+
+/* For tablets (577px to 768px) */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+    .menu-item-image {
+        height: 250px;
+    }
+}
+
+/* For small desktops (769px to 992px) */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .menu-item-card {
+        width: 100%;
+    }
+}
+
+/* For large desktops (min-width: 993px) */
+@media screen and (min-width: 993px) {
+    .menu-item-image {
+        height: 200px;
+    }
+}

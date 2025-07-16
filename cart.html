@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Add Bootstrap and Font Awesome for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/1e8988dde9.js"></script>
+    <link rel="stylesheet" href="/static/Experiment.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="/static/images/home/logo.jpg" alt="Logo" style="height: 40px;">
+                Annapurna Restaurant
+            </a>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <div class="cart-section container mt-4">
+        <h1 class="cart-section-heading">Your Cart</h1>
+        
+        {% if cart_items %}
+            <div id="cart-items">
+                {% for item in cart_items %}
+                <div class="cart-item card mb-3">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-2">
+                                <img src="{{ item.image }}" alt="{{ item.name }}" class="img-fluid rounded" style="max-height: 80px;">
+                            </div>
+                            <div class="col-md-4">
+                                <h5 class="card-title">{{ item.name }}</h5>
+                                <p class="card-text text-muted">{{ item.description }}</p>
+                                <p class="card-text"><strong>Price: Rs. {{ item.price }}</strong></p>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="quantity-controls d-flex align-items-center">
+                                    <button class="btn btn-sm btn-secondary minus-btn" data-cart-id="{{ item.cart_id }}" data-quantity="{{ item.quantity - 1 }}">-</button>
+                                    <span class="mx-3 quantity-display">{{ item.quantity }}</span>
+                                    <button class="btn btn-sm btn-secondary plus-btn" data-cart-id="{{ item.cart_id }}" data-quantity="{{ item.quantity + 1 }}">+</button>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="card-text"><strong>Total: Rs. {{ item.price * item.quantity }}</strong></p>
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn btn-sm btn-danger remove-btn" data-cart-id="{{ item.cart_id }}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="cart-total-text"><strong>Total Amount: Rs. <span id="cart-total">{{ cart_items | sum(attribute='price') * cart_items | sum(attribute='quantity') }}</span></strong></p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <button class="btn btn-success btn-lg" id="buy-now">Place Order</button>
+                </div>
+            </div>
+        {% else %}
+            <div class="text-center py-5">
+                <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                <h3>Your cart is empty</h3>
+                <p class="text-muted">Add some delicious food items to your cart!</p>
+                <a href="/" class="btn btn-primary">Browse Menu</a>
+            </div>
+        {% endif %}
+        
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-outline-primary">Continue Shopping</a>
+        </div>
+    </div>
+
+    <!-- Order Modal -->
+    <div class="modal fade" id="orderModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Complete Your Order</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="orderForm">
+                        <div class="form-group">
+                            <label>Delivery Address</label>
+                            <textarea class="form-control" name="delivery_address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" class="form-control" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Payment Method</label>
+                            <select class="form-control" name="payment_method">
+                                <option value="cash_on_delivery">Cash on Delivery</option>
+                                <option value="card">Credit/Debit Card</option>
+                                <option value="upi">UPI</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="confirm-order">Confirm Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cart functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Quantity controls
+            document.querySelectorAll('.minus-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const cartId = this.getAttribute('data-cart-id');
+                    const newQuantity = parseInt(this.getAttribute('data-quantity'));
+                    updateCartItem(cartId, newQuantity);
+                });
+            });
+
+            document.querySelectorAll('.plus-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const cartId = this.getAttribute('data-cart-id');
+                    const newQuantity = parseInt(this.getAttribute('data-quantity'));
+                    updateCartItem(cartId, newQuantity);
+                });
+            });
+
+            // Remove item
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const cartId = this.getAttribute('data-cart-id');
+                    removeCartItem(cartId);
+                });
+            });
+
+            // Place order
+            document.getElementById('buy-now').addEventListener('click', function() {
+                $('#orderModal').modal('show');
+            });
+
+            document.getElementById('confirm-order').addEventListener('click', function() {
+                const form = document.getElementById('orderForm');
+                const formData = new FormData(form);
+                const orderData = Object.fromEntries(formData.entries());
+
+                fetch('/api/orders', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(orderData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        alert('Order placed successfully! Order ID: ' + data.order_id);
+                        window.location.href = '/';
+                    } else {
+                        alert('Error placing order: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error placing order. Please try again.');
+                });
+            });
+        });
+
+        function updateCartItem(cartId, quantity) {
+            fetch('/api/cart/update', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    cart_item_id: cartId,
+                    quantity: quantity
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    location.reload(); // Refresh page to show updated cart
+                } else {
+                    alert('Error updating cart: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error updating cart. Please try again.');
+            });
+        }
+
+        function removeCartItem(cartId) {
+            if (confirm('Are you sure you want to remove this item?')) {
+                fetch(`/api/cart/remove/${cartId}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        location.reload(); // Refresh page to show updated cart
+                    } else {
+                        alert('Error removing item: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error removing item. Please try again.');
+                });
+            }
+        }
+    </script>
+</body>
+</html>

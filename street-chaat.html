@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/1e8988dde9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/Experiment.css">
+    <script src="/static/Experiment.js"></script>
+</head>
+<body>
+    <div id="sectionStreetChaat">
+        <div class="StreetChaat-Container">
+            <div class="container">
+                <div class="row">
+                    {% for item in chaat_items %}
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="shadow menu-item-card p-3 mb-3">
+                            <img src="{{ item.image }}" class="menu-item-image w-100" alt="{{ item.name }}" />
+                            <h1 class="menu-card-title">{{ item.name }}</h1>
+                            <p class="Dish-Price">Rs.{{ item.price }}</p>
+                            <div class="rating">
+                                <span class="stars">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star-half-alt text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                </span>
+                                <span class="rating-text">(4.5)</span>
+                            </div>
+                            <a href="" class="menu-item-link">Order Now</a>
+                            <div class="icon-conatiner">
+                                <button class="btn add-to-cart-icon mr-auto"
+                                        data-food-item-id="{{ item._id|string }}"
+                                        data-food-name="{{ item.name }}"
+                                        data-food-price="{{ item.price }}"
+                                        data-food-image="{{ item.image }}">
+                                    <i class="fas fa-shopping-bag custom_icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="d-flex justify-content-center align-items-end mb-3">
+                <a href="/"> <button class="back-button btn btn-primary">Back</button></a>
+            </div>
+        </div>
+    </div>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    var addToCartButtons = document.querySelectorAll(".add-to-cart-icon");
+    addToCartButtons.forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+            const foodId = this.getAttribute('data-food-item-id');
+            fetch('/api/cart/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    food_item_id: foodId,
+                    quantity: 1
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert("Added to cart!");
+                } else {
+                    alert("Error adding item to cart: " + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("Error adding item to cart. Please try again.");
+            });
+        });
+    });
+});
+</script>
+</body>
+</html>

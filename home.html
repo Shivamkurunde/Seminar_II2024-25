@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/1e8988dde9.js" crossorigin="anonymous"></script> <!-- Awespme Icon Kit -->
+
+    <link rel="stylesheet" href="/static/Experiment.css">
+ <script src="/static/Experiment.js" defer></script>
+
+
+</head>
+
+<body>
+
+    <div id="sectionHome">
+     
+          
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container-fluid"> <!--- container-fluid uses full width while container not-->
+                  <a class="ml-5 pl-5 navbar-brand" href="#sectionHome" onclick="display('sectionHome')">
+                     <img src="/static/images/home/logo.jpg" class="Logo mr-auto ml-5" />
+                  </a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+                      <div class="navbar-nav ml-auto  justify-content-end">
+                          <a class="nav-link active custom-nav-link" href="#Why_choose_US">Why Choose Us? <span class="sr-only">(current)</span></a>
+                          <a class="nav-link custom-nav-link" href="#Explore-Menu">Explore Menu</a>
+                          <a class="nav-link custom-nav-link" href="#Delivery-Payments">Delivery & Payments</a>
+                          <a class="nav-link custom-nav-link" href="#Follow-Us">Follow Us</a>
+                          <a class="nav-link custom-nav-link" href="/login">Login</a>
+                          <a class="nav-link custom-nav-link" href="/logout">Logout</a>
+                          <a class="nav-link custom-nav-link" href="/cart" id="cart-toggle">
+                              <i class="fas fa-shopping-cart"></i> Cart
+                          </a>
+                      </div>
+                  </div>
+
+            </div>
+        </nav>
+
+
+        <div class="Banner-section-bg-container mb-3 d-flex  flex-column justify-content-center">
+
+            <div class="text-center ">
+                <h1 class="banner-heading">Eat Delicious, Fresh & Healthy </h1>
+                <p class="banner-caption">Explore a variety of fresh, nutritious meals made just for you</p>
+                <a href="#Explore-Menu">
+                    <button class="banner-button">View Menu</button>
+                </a>
+                <a href="#Explore-Menu">
+                    <button class="banner-outline-button">Order Now</button>
+                </a>
+            </div>
+
+        </div>
+
+
+
+        <div id="Why_choose_US" class="Why-section-container pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-12 text-center mb-4">
+                        <h1 class="Why-section-heading">Why choose Us?</h1>
+                        <p class="Why-section-description">We use both original recipes and classic versions of famous items.</p>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="Why-section-card p-3 mb-3">
+                            <img src="/static/images/home/food-service-icon.jpg" class="Why-section-card-image" alt="Food Service" />
+                            <h1 class="Why-section-card-title mt-3">Food Service</h1>
+                            <p class="Why-section-car-description">Experience fine dining at the comfort of your home. All our
+                                orders are carefully packaged and arranged to give you nothing less than perfect.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="Why-section-card p-3 mb-3">
+                            <img src="/static/images/home/fresh-food.png" class="Why-section-card-image" alt="Fresh Food" />
+                            <h1 class="Why-section-card-title mt-3">Fresh Food</h1>
+                            <p class="Why-section-car-description">The Fresh Food group provides fresh-cut fruits and vegetables
+                                directly picked from our partner farms and farm houses so that you always get them tree to
+                                plate.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="Why-section-card p-3 mb-3">
+                            <img src="/static/images/home/offers-icon.png" class="Why-section-card-image" alt="Best Offers" />
+                            <h1 class="Why-section-card-title mt-3">Best Offers</h1>
+                            <p class="Why-section-car-description">Food Coupons & Offers up to
+                                <span class="offers">50% OFF</span> and Exclusive Promo Codes on All Online Food Orders.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div id="Explore-Menu" class="Explore-menu-section  pt-5 pb-5  d-flex justify-content-center">
+            <div class="container">
+                <div class="row">
+                     <!-- Explore Menu -->
+
+                    <div class="col-12">
+                        <h1 class="Explore-menu-heading">Explore Menu</h1>
+                    </div>
+
+                    <div class="col-12  col-md-6  col-xl-3  m-sm-auto m-md-auto ">
+                        <div class="shadow menu-item-card p-3 mb-3 ">
+                            <img src="/static/images/menu/veg/veg-food.jpg" class="menu-item-image w-100" alt="Gym Food" />
+                             <h1 class="menu-card-title">Main Course</h1>
+                            <a  href="/veg">
+                                <button class="menu-item-link ">
+                                View All
+                                <svg width="16px" height="16px" viewBox="0 0 16 16" class=" custom-svg Class-Svg bi bi-arrow-right-short" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                </svg>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12  col-md-6  col-xl-3  m-auto">
+                        <div class="shadow menu-item-card p-3 mb-3">
+                            <img src="/static/images/menu/gym/gym-food.jpg" class="menu-item-image w-100" alt="Street Chaat" />
+
+                            <h1 class="menu-card-title">Healthy (GYM) Dishes</h1>
+                              <a  href="/gym-food">
+                                <button class="menu-item-link">
+                                View All
+                                <svg width="16px" height="16px" viewBox="0 0 16 16" class="  custom-svg Class-Svg bi bi-arrow-right-short" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                </svg>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12  col-md-6  col-xl-3  m-auto">
+                        <div class="menu-item-card shadow p-3 mb-3">
+                            <img src="/static/images/menu/street-chaat/street-chaat.jpg" class="menu-item-image w-100" />
+                            <h1 class="menu-card-title">Street Chaat</h1>
+                           <a  href="/street-chaat">
+                                <button class="menu-item-link">
+                                View All
+                                <svg width="16px" height="16px" viewBox="0 0 16 16" class="  custom-svg  Class-Svg bi bi-arrow-right-short" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                </svg>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12  col-md-6  col-xl-3  m-auto">
+                        <div class="menu-item-card shadow p-3 mb-3">
+                            <img src="/static/images/menu/desserts and icream/desserts-icecream.jpg" class="menu-item-image w-100" alt="Desserts & Ice Cream" />
+                            <h1 class="menu-card-title">Desserts & Ice Cream</h1>
+                          <a  href="/Dessert-Icream">
+                                <button class="menu-item-link">
+                                View All
+                                <svg width="16px" height="16px" viewBox="0 0 16 16" class="  custom-svg  Class-Svg bi bi-arrow-right-short" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                </svg>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="healthy-food-section pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-5">
+                        <div class="text-center">
+                            <img src="/static/images/sections/healthy-food-section.jpg" class="healthy-food-section-img" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <h1 class="healthy-food-section-heading">
+                            Fresh, Healthy, Organic, Delicious Food
+                        </h1>
+                        <p class="healthy-food-section-description">
+                            Say no to harmful chemicals and go fully organic with our range of
+                            fresh fruits and veggies. Pamper your body and your senses with
+                            the true and unadulterated gifts from mother nature.
+                        </p>
+                        <a href="https://youtu.be/pSa6JZT4uK0?si=zo8VQDiq0No-cBed" target="_blank"> 
+                            <button class="custom-button">Watch Video</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="Delivery-Payments" class="delivery-and-payment-section pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-5 order-1 order-md-2">
+                        <div class="text-center">
+                            <img src="/static/images/payments/delivery-payment-section-img.png" class="delivery-and-payment-section-img" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-7 order-2 order-md-1">
+                        <h1 class="delivery-and-payment-section-heading">
+                            Delivery and Payment
+                        </h1>
+                        <p class="delivery-and-payment-section-description">
+                            Enjoy hassle-free payment with the plenitude of payment options
+                            available for you. Get live tracking and locate your food on a
+                            live map. It's quite a sight to see your food arrive to your door.
+                            Plus, you get a 5% discount on every order every time you pay
+                            online.
+                        </p>
+                        <button class="custom-button">Order Now</button>
+                        <div class="mt-3">
+                            <img src="/static/images/payments/visa-img.png" class="payment-card-img" />
+                            <img src="/static/images/payments/master-card-img.png" class="payment-card-img" />
+                            <img src="/static/images/payments/paypal-card-img.png" class="payment-card-img" />
+                            <img src="/static/images/payments/american-express-img.png" class="payment-card-img" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="thanking-customers-section pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-7 d-flex flex-column justify-content-center">
+                        <h1 class="thanking-customers-section-heading">
+                            Thank you for being a valuable customer to us.
+                        </h1>
+                        <p class="thanking-customers-section-description">
+                            We have a surprise gift for you
+                        </p>
+                        <div class="d-md-none">
+                            <img src="/static/images/sections/thanking-customers-section-img.png" class="thanking-customers-section-img" />
+                        </div>
+                        <div>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="custom-button" data-toggle="modal" data-target="#exampleModal">
+                                Redeem Gift
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title thanking-customers-section-moda-title" id="exampleModalLabel">Gift Voucher</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="/static/images/home/gift-voucher.png" class="w-100" />
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5 d-none d-md-block">
+                        <img src="/static/images/sections/thanking-customers-section-img.png" class="thanking-customers-section-img" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="Follow-Us" class="follow-us-section pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="follow-us-section-heading">Follow Us</h1>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex flex-row justify-content-center">
+                            <a href="https://x.com/" target="_blank" class="follow-us-icon-container Twiteer">
+                                <i class="fab fa-twitter icon"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" target="_blank" class="follow-us-icon-container instagram">
+                               <span> <i class="fab fa-instagram icon"></i> </span>
+                            </a>
+                            <a href="https://www.facebook.com/" target="_blank" class="follow-us-icon-container facebook ">
+                                <i class="fab fa-facebook icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+   
+        <footer class="footer-section text-white pt-4 pb-2 mt-5">
+     <div class="container text-center text-md-start">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <h5 class="text-uppercase pb-3">Annapurana Resturent</h5>
+                <p>Your one-stop platform to explore and order delicious food, tailored to your taste.<br>
+                   Where Health Meets Taste Order Fresh, Smart, and Delicious Food Anytime.
+                </p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5 class="text-uppercase pb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li class="hite"><a href="#" class="text-white text-decoration-none  ">Home</a></li>
+                    <li class="hite"><a href="/veg" class="text-white text-decoration-none  ">Pure Veg</a></li>
+                    <li class="hite"><a href="/gym-food" class="text-white text-decoration-none  ">Gym Food</a></li>
+                    <li class="hite"><a href="/street-chaat" class="text-white text-decoration-none  ">Street Chaat </a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5 class="text-uppercase pb-3">Contact Us</h5>
+                <p>Email: support@trustworthy.com</p>
+                <p>Phone: +91 98765 43210</p>
+                <p>Location: Nanded, Maharashtra</p>
+            </div>
+        </div>
+    </div>
+   
+        </footer>
+
+
+
+    </div>
+
+
+
+
+
+
+
+<script>  
+    window.addEventListener("load", function () {
+    document.querySelector(".Banner-section-bg-container").classList.add("show");
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/1e8988dde9.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="/static/Experiment.css">
+    <script src="/static/Experiment.js"></script>
+</head>
+<body>
+    <div id="sectionGymShakes">
+        <div class="Gym-Shakes-Container">
+            <div class="container">
+                <div class="row">
+                    <!-- Avocado Smoothie Card -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="shadow menu-item-card p-3 mb-3">
+                            <img src="/static/images/menu/gym/shakes and smoothies/avacado-smoothie.jpg" class="menu-item-image w-100" alt="Avocado Smoothie" />
+                            <h1 class="menu-card-title">Avocado Smoothie</h1>
+                            <p class="Dish-Price">Rs.320</p>
+                            <div class="rating">
+                                <span class="stars">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star-half-alt text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                </span>
+                                <span class="rating-text">(4.8)</span>
+                            </div>
+                            <a href="#" class="menu-item-link">Order Now</a>
+                            <div class="icon-conatiner">
+                                <button class="btn add-to-cart-icon mr-auto" data-food-item-id="{{ avocado_id }}" data-food-name="Avocado Smoothie">
+                                    <i class="fas fa-shopping-bag custom_icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Almond Milk Card -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="shadow menu-item-card p-3 mb-3">
+                            <img src="/static/images/menu/gym/shakes and smoothies/almond-milk.jpg" class="menu-item-image w-100" alt="Almond Milk" />
+                            <h1 class="menu-card-title">Almond Milk</h1>
+                            <p class="Dish-Price">Rs.70</p>
+                            <div class="rating">
+                                <span class="stars">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star-half-alt text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                </span>
+                                <span class="rating-text">(4.6)</span>
+                            </div>
+                            <a href="#" class="menu-item-link">Order Now</a>
+                            <div class="icon-conatiner">
+                                <button class="btn add-to-cart-icon mr-auto" data-food-item-id="{{ almond_id }}" data-food-name="Almond Milk">
+                                    <i class="fas fa-shopping-bag custom_icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Banana Peanut Butter Shake Card -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="shadow menu-item-card p-3 mb-3">
+                            <img src="/static/images/menu/gym/shakes and smoothies/banana-shake.jpg" class="menu-item-image w-100" alt="Banana Peanut Butter Shake" />
+                            <h1 class="menu-card-title">Banana Peanut Butter Shake</h1>
+                            <p class="Dish-Price">Rs.110</p>
+                            <div class="rating">
+                                <span class="stars">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star-half-alt text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                </span>
+                                <span class="rating-text">(4.7)</span>
+                            </div>
+                            <a href="#" class="menu-item-link">Order Now</a>
+                            <div class="icon-conatiner">
+                                <button class="btn add-to-cart-icon mr-auto" data-food-item-id="{{ banana_id }}" data-food-name="Banana Peanut Butter Shake">
+                                    <i class="fas fa-shopping-bag custom_icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-end mb-3">
+            <a href="/gym-food"><button class="back-button btn btn-primary mr-2">Back</button></a>
+            <a href="/"> <button class="back-button btn btn-success">Back to Home</button></a>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced cart functionality with database integration
+        document.addEventListener("DOMContentLoaded", function() {
+            var addToCartButtons = document.querySelectorAll(".add-to-cart-icon");
+
+            addToCartButtons.forEach(function(button) {
+                button.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    
+                    const foodId = this.getAttribute('data-food-item-id');
+                    const foodName = this.getAttribute('data-food-name');
+                    const foodPrice = parseInt(this.getAttribute('data-food-price'));
+
+                    // Add to cart via API
+                    fetch('/api/cart/add', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            food_item_id: foodId,
+                            quantity: 1
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.message) {
+                            alert(foodName + " added to cart!");
+                            // Update cart display if cart is visible
+                            if (typeof updateCartDisplay === 'function') {
+                                updateCartDisplay();
+                            }
+                        } else {
+                            alert("Error adding item to cart: " + data.error);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert("Error adding item to cart. Please try again.");
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
